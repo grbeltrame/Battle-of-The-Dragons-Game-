@@ -132,6 +132,7 @@ def gameMenu():
         #         break
 
         fundoMenu.draw()
+        menuPrincipal.draw()
         # play.draw()
         # dificuldade.draw()
         # reload.draw()
