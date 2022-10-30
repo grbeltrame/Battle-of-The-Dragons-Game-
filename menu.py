@@ -2,7 +2,7 @@ from tkinter import Button
 from PPlay.gameimage import* 
 from PPlay.window import *
 from PPlay.sprite import *
-import game
+import cavernaE
 
  #Define incremento de dificuldade
 global modGame 
@@ -10,28 +10,26 @@ global modFacil
 global modMedio 
 global modDificil 
 
-# def gameRank():
+# def gameReload():
 
-#     janela = Window(1100,800)
-#     janela.set_title("Space Invaders")
-#     janela.set_background_color((0,255,0))
+#   janela = Window(1280,720)
+    # janela.set_title("Caverna fase Estática") 
 
 #     teclado = Window.get_keyboard()
 
-#     #Define fundo do rank
-#     fundoRank = GameImage("sprites/planetas.jpg")
+#     #Define fundo do Reload
+#     fundoReload = GameImage("sprites/icones/fundo-dragão.jpg")
 
 #     #Game Loop
 #     while(True):
 #         if(teclado.key_pressed("ESC")):
 #             gameMenu()
 
-#         janela.set_background_color((0,255,0))
-#         fundoRank.draw()
+#         fundoReload.draw()
 #         janela.update()
 
 # def gameDificulty():
-#     janela = Window(1100,800)
+#     janela = Window(1280,720)
 #     janela.set_title("Batttle of the Dragons")
 
 #     #Define imagem de fundo
@@ -87,55 +85,57 @@ global modDificil
 #         dificil.draw() 
 #         janela.update()
 
-# def gameMenu():
-#     janela = Window(1100,800)
-#     janela.set_title("Space Invaders")
-#     janela.set_background_color((0,255,0))
+def gameMenu():
+    janela = Window(1280,720)
+    janela.set_title("Batttle of the Dragons")
 
-#     #Define imagem de fundo
-#     fundoMenu = GameImage("sprites/planetas.jpg") 
+    #Define imagem de fundo
+    fundoMenu = GameImage("sprites/icones/fundo-dragão.jpg")
 
+    #Define imagem do Menu na tela 
+    menuPrincipal = Sprite("sprites/icones/MENU PRINCIPAL.svg")
+    menuPrincipal.set_position(janela.width/2 - menuPrincipal.width/2,janela.height/2 - menuPrincipal.height)
 
-#     #Define imagem dos botões
-#     jogar = Sprite("sprites/jogar.png")
-#     dificuldade = Sprite("sprites/dificuldade.png")
-#     ranking = Sprite("sprites/ranking.png")
-#     sair = Sprite("sprites/sair.png")
+    # #Define imagem dos botões
+    # play = Sprite("sprites\icones\PLAY.png")
+    # dificuldade = Sprite("sprites\icones\DIFICULTY.png")
+    # reload = Sprite("sprites\icones\LOAD.png")
+    # howTo = Sprite("sprites\icones\HOW.png")
+    # sair = Sprite("sprites\icones\EXIT.png")
 
-#     #Define posição dos botoes
-#     jogar.x = janela.width/2 - jogar.width/2
-#     jogar.y = 110
+    # #Define posição dos botoes
+    # play.x = janela.width/2 -play.width/2
+    # play.y = 110
 
-#     dificuldade.x = janela.width/2 - dificuldade.width/2
-#     dificuldade.y = 220
+    # dificuldade.x = janela.width/2 - dificuldade.width/2
+    # dificuldade.y = 220
 
-#     ranking.x = janela.width/2 - ranking.width/2
-#     ranking.y = 330
+    # reload.x = janela.width/2 - reload.width/2
+    # reload.y = 330
 
-#     sair.x = janela.width/2 - sair.width/2
-#     sair.y = 440
+    # sair.x = janela.width/2 - sair.width/2
+    # sair.y = 440
 
-#     #Permite entrada de mouse
-#     mouse = Window.get_mouse()
+    #Permite entrada de mouse
+    mouse = Window.get_mouse()
 
-#     #Game Loop
-#     while (True): 
-#         if(mouse.is_button_pressed(1)):
-#             if(mouse.is_over_object(jogar)):
-#                 game.gamePlay(1)
-#             elif(mouse.is_over_object(dificuldade)):
-#                 gameDificulty()
-#             elif(mouse.is_over_object(ranking)):
-#                 gameRank()
-#             elif(mouse.is_over_object(sair)):
-#                 break
+    #Game Loop
+    while (True): 
+        # if(mouse.is_button_pressed(1)):
+        #     if(mouse.is_over_object(play)):
+        #         caver
+        #     elif(mouse.is_over_object(dificuldade)):
+        #         gameDificulty()
+        #     elif(mouse.is_over_object(reload)):
+        #         gameReload()
+        #     elif(mouse.is_over_object(sair)):
+        #         break
 
-#         janela.set_background_color((0,255,0))
-#         fundoMenu.draw()
-#         jogar.draw()
-#         dificuldade.draw()
-#         ranking.draw()
-#         sair.draw()
-#         janela.update()
+        fundoMenu.draw()
+        # play.draw()
+        # dificuldade.draw()
+        # reload.draw()
+        # sair.draw()
+        janela.update()
 
-# gameMenu()
+gameMenu()
