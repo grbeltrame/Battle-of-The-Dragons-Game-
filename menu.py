@@ -10,35 +10,43 @@ global modFacil
 global modMedio 
 global modDificil 
 
-# def gameReload():
+def gameReload():
 
-#   janela = Window(1280,720)
-    # janela.set_title("Caverna fase Estática") 
+    janela = Window(1280,720)
+    janela.set_title("Battle of the Dragons") 
 
-#     teclado = Window.get_keyboard()
+    teclado = Window.get_keyboard()
 
-#     #Define fundo do Reload
-#     fundoReload = GameImage("sprites/icones/fundo-dragão.jpg")
+    #Define fundo do Reload
+    fundoReload = GameImage("sprites/icones/fundo-dragão.jpg")
 
-#     #Game Loop
-#     while(True):
-#         if(teclado.key_pressed("ESC")):
-#             gameMenu()
+    #Define imagem do Menu na tela 
+    menuReload = Sprite("sprites/icones/RELOAD MENU.png")
+    menuReload.set_position(janela.width/2 - menuReload.width/2,janela.height/2 - menuReload.height)
 
-#         fundoReload.draw()
-#         janela.update()
+    #Game Loop
+    while(True):
+        fundoReload.draw()
+        if(teclado.key_pressed("ESC")):
+            gameMenu()
+        menuReload.draw()
+        janela.update()
 
-# def gameDificulty():
-#     janela = Window(1280,720)
-#     janela.set_title("Batttle of the Dragons")
+def gameDificulty():
+    janela = Window(1280,720)
+    janela.set_title("Batttle of the Dragons")
 
-#     #Define imagem de fundo
-#     fundoDificuldades = GameImage("sprites/icones/fundo-dragão.jpg")
+    #Define imagem de fundo
+    fundoDificuldades = GameImage("sprites/icones/fundo-dragão.jpg")
 
-#     #Define botões de dificuldade
-#     facil = Sprite("sprites/facil.png")
-#     medio = Sprite("sprites/medio.png")
-#     dificil = Sprite("sprites/dificil.png")
+    #Define imagem do Menu na tela 
+    menuDificulty = Sprite("sprites/icones/DIFICULTY MENU.png")
+    menuDificulty.set_position(janela.width/2 - menuDificulty.width/2,janela.height/2 - menuDificulty.height)
+
+    #Define botões de dificuldade
+    facil = Sprite("sprites/facil.png")
+    medio = Sprite("sprites/medio.png")
+    dificil = Sprite("sprites/dificil.png")
 
 #     #Define posição dos botões
 #     facil.x = janela.width/2 - facil.width/2
@@ -93,7 +101,7 @@ def gameMenu():
     fundoMenu = GameImage("sprites/icones/fundo-dragão.jpg")
 
     #Define imagem do Menu na tela 
-    menuPrincipal = Sprite("sprites/icones/MENU PRINCIPAL.svg")
+    menuPrincipal = Sprite("sprites/icones/MENU PRINCIPAL.png")
     menuPrincipal.set_position(janela.width/2 - menuPrincipal.width/2,janela.height/2 - menuPrincipal.height)
 
     # #Define imagem dos botões
