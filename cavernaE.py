@@ -16,7 +16,7 @@ teclado = janela.get_keyboard()
 fundoCavE = GameImage("sprites/caverna-estatico/caverna-estatica.jpg")
 
 #Define dragão de acordo com o selecionado e com a movimentação e posiciona no inicio do jogo
-dragaoStand = Sprite("sprites/personagens/branco-1.png",4)
+dragaoStand = Sprite("sprites/personagens/azul-1.png",4)
 dragaoFlying = Sprite("sprites/personagens/azul-2.png",4)
 dragaoStand.set_position(150,janela.height - 50 - dragaoStand.height)
 dragaoStand.set_total_duration(1000)
