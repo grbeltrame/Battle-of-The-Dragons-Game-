@@ -37,30 +37,30 @@ def gameChoseDragon():
 
     #Define imagem do Menu na tela 
     choseDragon = Sprite("sprites/icones/DRAGONS.png")
-    choseDragon.set_position(janela.width/2 - choseDragon.width/2,janela.height/2 - choseDragon.height)
+    choseDragon.set_position(janela.width/2 - choseDragon.width/2,janela.height/2 - choseDragon.height/2)
 
-    falkor = Sprite("sprites/personagens/bran1.png",3)
-    falkorFlying = Sprite("sprites/personagens/bran-2.png",3)
+    falkor = Sprite("sprites/personagens/bran1.png",4)
+    falkorFlying = Sprite("sprites/personagens/bran-2.png",4)
     falkor.set_total_duration(1000)
     falkorFlying.set_total_duration(1000)
-    mushu = Sprite("sprites/personagens/red-1.png",3)
-    mushuFlying = Sprite("sprites/personagens/red-2.png",3)
+    mushu = Sprite("sprites/personagens/red-1.png",4)
+    mushuFlying = Sprite("sprites/personagens/red-2.png",4)
     mushu.set_total_duration(1000)
     mushuFlying.set_total_duration(1000)
-    banguela = Sprite("sprites/personagens/pret-1.png",3)
-    banguelaFlying = Sprite("sprites/personagens/pret-2.png",3)
+    banguela = Sprite("sprites/personagens/pret-1.png",4)
+    banguelaFlying = Sprite("sprites/personagens/pret-2.png",4)
     banguela.set_total_duration(1000)
     banguelaFlying.set_total_duration(1000)
-    elliot = Sprite("sprites/personagens/verd-1.png",3)
-    elliotFlying = Sprite("sprites/personagens/verd-2.png",3)
+    elliot = Sprite("sprites/personagens/verd-1.png",4)
+    elliotFlying = Sprite("sprites/personagens/verd-2.png",4)
     elliot.set_total_duration(1000)
     elliotFlying.set_total_duration(1000)
-    viserion =  Sprite("sprites/personagens/amar-1.png",3)
-    viserionFlying = Sprite("sprites/personagens/amar-2.png",3)
+    viserion =  Sprite("sprites/personagens/amar-1.png",4)
+    viserionFlying = Sprite("sprites/personagens/amar-2.png",4)
     viserion.set_total_duration(1000)
     viserionFlying.set_total_duration(1000)
-    saphira =  Sprite("sprites/personagens/azul-1.png",3)
-    saphiraFlying = Sprite("sprites/personagens/azul-2.png",3)
+    saphira =  Sprite("sprites/personagens/azul-1.png",4)
+    saphiraFlying = Sprite("sprites/personagens/azul-2.png",4)
     saphira.set_total_duration(1000)
     saphiraFlying.set_total_duration(1000)
 
@@ -73,12 +73,12 @@ def gameChoseDragon():
     saphiraBTN = Sprite("sprites/icones/SAPHIRA.png")
 
     #Define posição dos botoes
-    falkorBTN.set_position(250,266)
-    mushuBTN.set_position(399,266)
-    banguelaBTN.set_position(542,266)
-    elliotBTN.set_position(250,442)
-    viserionBTN.set_position(399,442)
-    saphiraBTN.set_position(542,442)
+    falkorBTN.set_position(445,240)
+    mushuBTN.set_position(589,240)
+    banguelaBTN.set_position(733,240)
+    elliotBTN.set_position(445,414)
+    viserionBTN.set_position(589,414)
+    saphiraBTN.set_position(733,414)
 
     #Variavel para solução do problema de varios clicks
     NoDClick = 300
@@ -115,7 +115,7 @@ def gameChoseDragon():
         falkorBTN.draw()
         mushuBTN.draw()
         banguelaBTN.draw()
-        elliot.draw()
+        elliotBTN.draw()
         viserionBTN.draw()
         saphiraBTN.draw()
         janela.update()
@@ -132,7 +132,7 @@ def gameHowTo():
 
     #Define imagem do Menu na tela 
     menuHowTo = Sprite("sprites/icones/HOW TO MENU.png")
-    menuHowTo.set_position(janela.width/2 - menuHowTo.width/2,janela.height/2 - menuHowTo.height)
+    menuHowTo.set_position(janela.width/2 - menuHowTo.width/2,janela.height/2 - menuHowTo.height/2)
 
     #Game Loop
     while(True):
@@ -156,7 +156,7 @@ def gameReload():
 
     #Define imagem do Menu na tela 
     menuReload = Sprite("sprites/icones/RELOAD MENU.png")
-    menuReload.set_position(janela.width/2 - menuReload.width/2,janela.height/2 - menuReload.height)
+    menuReload.set_position(janela.width/2 - menuReload.width/2,janela.height/2 - menuReload.height/2)
 
     #Game Loop
     while(True):
@@ -175,7 +175,7 @@ def gameDificulty():
 
     #Define imagem do Menu na tela 
     menuDificulty = Sprite("sprites/icones/DIFICULTY MENU.png")
-    menuDificulty.set_position(janela.width/2 - menuDificulty.width/2,janela.height/2 - menuDificulty.height)
+    menuDificulty.set_position(janela.width/2 - menuDificulty.width/2,janela.height/2 - menuDificulty.height/2)
 
     #Define botões de dificuldade
     facil = Sprite("sprites/icones/EASY.png")
@@ -183,9 +183,9 @@ def gameDificulty():
     dificil = Sprite("sprites/icones/HARD.png")
 
     #Define posição dos botões
-    facil.set_position(405,215)
-    medio.set_position(405,335)
-    dificil.set_position(405,455)
+    facil.set_position(522,221)
+    medio.set_position(522,339)
+    dificil.set_position(522,457)
 
     #Define incremento de dificuldade
     modGame = 0
@@ -217,6 +217,7 @@ def gameDificulty():
         if(NoDClick>0):
             NoDClick -=1 
         fundoDificuldades.draw()
+        menuDificulty.draw()
         facil.draw()
         medio.draw()
         dificil.draw() 
@@ -231,7 +232,7 @@ def gameMenu():
 
     #Define imagem do Menu na tela 
     menuPrincipal = Sprite("sprites/icones/MENU PRINCIPAL.png")
-    menuPrincipal.set_position(janela.width/2 - menuPrincipal.width/2,janela.height/2 - menuPrincipal.height)
+    menuPrincipal.set_position(janela.width/2 - menuPrincipal.width/2,janela.height/2 - menuPrincipal.height/2)
 
     #Define imagem dos botões
     play = Sprite("sprites/icones/PLAY.png")
@@ -241,15 +242,15 @@ def gameMenu():
     sair = Sprite("sprites/icones/EXIT.png")
 
     #Define posição dos botoes
-    play.set_position(400,208)
+    play.set_position(516,207)
 
-    dificuldade.set_position(400,270)
+    dificuldade.set_position(516,274)
 
-    reload.set_position(400,333)
+    reload.set_position(516,339)
 
-    howTo.set_position(400,406)
+    howTo.set_position(516,406)
 
-    sair.set_position(400,476)
+    sair.set_position(516,474)
 
     #Permite entrada de mouse
     mouse = Window.get_mouse()
