@@ -29,7 +29,7 @@ def gamePlayCavE(prefDragon,dragaoPrefFlying):
     while(True):
         fundoCavE.draw()
         dragao = movimento_dragao.movDragao(dragao,janela,teclado,dragaoPrefStand,dragaoPrefFlying) 
-        fire = movimento_dragao.shootFireball(teclado,dragao,janela)      
+        # fire = movimento_dragao.shootFireball(teclado,dragao,janela)      
         dragao.update()
         dragao.draw()
         janela.update()

@@ -48,12 +48,12 @@ def movTiro(tiros,velTiro,janela):
         tiro.draw()
         if(tiro.y < 0 - tiro.height):
             tiros.remove(tiro)
-def shootFireball(teclado,dragao,janela):   #ta dando bosta
-    if(teclado.key_pressed("F") ):
-        # delay = 10
-        criaTiro(tiros,dragao)     
-    if(len(tiros)>0):        
-        movTiro(tiros,velTiro,janela)
+# def shootFireball(teclado,dragao,janela):   #ta dando bosta
+#     if(teclado.key_pressed("F") ):
+#         # delay = 10
+#         criaTiro(tiros,dragao)     
+#     if(len(tiros)>0):        
+#         movTiro(tiros,velTiro,janela)
     # if(delay>0):
     #     delay -= 1
 
