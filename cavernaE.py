@@ -6,8 +6,7 @@ import movimento_dragao
 
 # Adicionar os soldados e o canhão(se a gnt achar o sprite disso), e as plataformas que precisar
 # Sinta-se livre pra colocar quantos soldados quiser e onde quiser
-global dragaoPrefStand
-global dragaoPrefFlying
+
 def gamePlayCavE(prefDragon,dragaoPrefFlying):
     #Define dimensão da janela e teclado
     janela = Window(1280,720)

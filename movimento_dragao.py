@@ -17,23 +17,6 @@ def trocaDragao(atual,novo):
     dragao.y = atual.y
     return dragao
 
-def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying): #avaliar uma forma de fazer ele pular sem mudar para o voando
-    dragao = atual
-    velDragao = 300
-    if(teclado.key_pressed("SPACE")):
-        dragao = trocaDragao(dragao,dragaoPrefFlying)
-    if(teclado.key_pressed("left_shift")) :
-        dragao = trocaDragao(dragao,dragaoPrefStand)
-    if(teclado.key_pressed("RIGHT")):
-        dragao.x += velDragao*janela.delta_time()  
-    if(teclado.key_pressed("LEFT")):
-        dragao.x -= velDragao*janela.delta_time() 
-    if(teclado.key_pressed("UP")):
-        dragao.y -= velDragao*janela.delta_time() 
-    if(teclado.key_pressed("DOWN")):
-        dragao.y += velDragao*janela.delta_time() 
-    return dragao
-
 def criaTiro(tiros,dragao):
     tiro = Sprite("sprites/personagens/fogo-2.png",4) 
     tiro.set_total_duration(1000)
@@ -44,26 +27,54 @@ def criaTiro(tiros,dragao):
 def movTiro(tiros,velTiro,janela):
     for tiro in tiros:
         tiro.x += velTiro*janela.delta_time()
-        tiro.y += velTiro*janela.delta_time()
+        tiro.y -= velTiro*janela.delta_time()
         tiro.draw()
         if(tiro.y < 0 - tiro.height):
             tiros.remove(tiro)
-# def shootFireball(teclado,dragao,janela):   #ta dando bosta
-#     if(teclado.key_pressed("F") ):
-#         # delay = 10
-#         criaTiro(tiros,dragao)     
-#     if(len(tiros)>0):        
-#         movTiro(tiros,velTiro,janela)
-    # if(delay>0):
-    #     delay -= 1
+def shootFireball(teclado,dragao,janela):
+    delay = 20
+    criaTiro(tiros,dragao)     
+    if(len(tiros)>0):        
+        movTiro(tiros,velTiro,janela)
+    if(delay>0):
+        delay -= 1
+
+def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying): 
+    dragao = atual
+    velDragao = 300
+    if(teclado.key_pressed("X")):
+        dragao = trocaDragao(dragao,dragaoPrefFlying)
+    if(teclado.key_pressed("left_shift")) :
+        dragao = trocaDragao(dragao,dragaoPrefStand)
+    # if(teclado.key_pressed("SPACE")):
+    #     inserir forma dele pular
+    if(teclado.key_pressed("RIGHT")):
+        dragao.x += velDragao*janela.delta_time()  
+    if(teclado.key_pressed("LEFT")):
+        dragao.x -= velDragao*janela.delta_time() 
+    if(teclado.key_pressed("UP")):
+        dragao.y -= velDragao*janela.delta_time() 
+    if(teclado.key_pressed("DOWN")):
+        dragao.y += velDragao*janela.delta_time() 
+    if(teclado.key_pressed("F") ):
+        shootFireball(teclado,dragao,janela)
+    return dragao
+
+
 
 # def colisaoDragao(plataforma,soldado,dragao):
 #     estudar as colisoes de acordo com as plataformas, soldados e tiros de outros dragoes
 
-# def lessHP():
-#     tirar vida do dragao quando for atingido
+# def lessHP(dragonHP,enemyTiros,dragao,dano,modGame):
+#     for tiro in enemyTiros:
+        # if(tiro.collided(dragao)):
+        #     dragonHP -= dano*modGame
+        # alterar barra de hp
+        # return dragonHP
 
-# def gameOver():
-#     termina o jogo quando o jogador morrer
+
+# def gameOver(dragonHP):
+#     if(dragonHP == 0):
+        # mensagem e som dizendo que o jogador perdeu
 
 

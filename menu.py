@@ -26,6 +26,9 @@ global viserionFlying
 global saphira
 global saphiraFlying
 
+global dragaoPrefStand
+global dragaoPrefFlying
+
 
 
 def gameChoseDragon():
@@ -41,28 +44,23 @@ def gameChoseDragon():
 
     falkor = Sprite("sprites/personagens/bran1.png",4)
     falkorFlying = Sprite("sprites/personagens/bran-2.png",4)
-    falkor.set_total_duration(1000)
-    falkorFlying.set_total_duration(1000)
+   
+   
     mushu = Sprite("sprites/personagens/red-1.png",4)
     mushuFlying = Sprite("sprites/personagens/red-2.png",4)
-    mushu.set_total_duration(1000)
-    mushuFlying.set_total_duration(1000)
+ 
     banguela = Sprite("sprites/personagens/pret-1.png",4)
     banguelaFlying = Sprite("sprites/personagens/pret-2.png",4)
-    banguela.set_total_duration(1000)
-    banguelaFlying.set_total_duration(1000)
+    
     elliot = Sprite("sprites/personagens/verd-1.png",4)
     elliotFlying = Sprite("sprites/personagens/verd-2.png",4)
-    elliot.set_total_duration(1000)
-    elliotFlying.set_total_duration(1000)
+    
     viserion =  Sprite("sprites/personagens/amar-1.png",4)
     viserionFlying = Sprite("sprites/personagens/amar-2.png",4)
-    viserion.set_total_duration(1000)
-    viserionFlying.set_total_duration(1000)
+   
     saphira =  Sprite("sprites/personagens/azul-1.png",4)
     saphiraFlying = Sprite("sprites/personagens/azul-2.png",4)
-    saphira.set_total_duration(1000)
-    saphiraFlying.set_total_duration(1000)
+  
 
     #Define botoes dos dragoes
     falkorBTN = Sprite("sprites/icones/FALKOR.png")
