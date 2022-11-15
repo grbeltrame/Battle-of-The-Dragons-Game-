@@ -64,6 +64,7 @@ def gamePlayFlorD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying)
         background_dinamico.movimentoplataforma(plataforma_10, speed,janela,teclado)
         background_dinamico.movimentoplataforma(plataforma_11, speed,janela,teclado)
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
+
         delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)      
         dragao.update()
         dragao.draw()

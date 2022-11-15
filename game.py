@@ -10,7 +10,7 @@ import casteloE
 import endGame
 
 def game(prefDragon,dragaoPrefFlying,cenario,vetorDragoesInimigos):
-    delay = 20 
+    delay = 50 
     flying = False
     #Chamando as fases
     if(cenario == 1):

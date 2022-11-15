@@ -37,6 +37,7 @@ def gamePlayCavE(prefDragon,dragaoPrefFlying,delay,flying):
     while(True):
         fundoCavE.draw()
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
+
         delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay) 
         platform1.draw()
         platform2.draw()

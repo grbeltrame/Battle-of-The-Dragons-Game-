@@ -27,7 +27,8 @@ def gamePlayCasE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying):
     while(True):
         fundoCasE.draw()
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
-        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)       
+
+        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)      
         dragao.update()
         dragao.draw()
         janela.update()

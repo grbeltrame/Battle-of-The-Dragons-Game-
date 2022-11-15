@@ -19,9 +19,9 @@ def trocaDragao(atual,novo):
     return dragao
 
 def criaTiro(tiros,dragao):
-    tiro = Sprite("sprites/personagens/fogo-2.png",4) 
+    tiro = Sprite("sprites/personagens/fogo-2.png",3) 
     tiro.set_total_duration(1000)
-    tiro.y = dragao.y - tiro.height/2
+    tiro.y = dragao.y + tiro.height 
     tiro.x = dragao.x*1.5
     tiros.append(tiro)
 
@@ -33,9 +33,9 @@ def movTiro(tiros,velTiro,janela):
             tiros.remove(tiro)
 
 def shootFireball(teclado,dragao,janela,delay):
-    if(delay == 0):
+    if(teclado.key_pressed("F") and delay == 0 ):
         criaTiro(tiros,dragao)
-        delay = 20    
+        delay = 50    
     if(len(tiros)>0):        
         movTiro(tiros,velTiro,janela)
     if(delay>0):
@@ -62,8 +62,6 @@ def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flying):
         dragao.x += velDragao*janela.delta_time()  
     if(teclado.key_pressed("LEFT")):
         dragao.x -= velDragao*janela.delta_time() 
-    if(teclado.key_pressed("F") ):
-        shootFireball(teclado,dragao,janela,delay)
     return dragao,flying
 
 
@@ -78,9 +76,5 @@ def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flying):
         # alterar barra de hp
         # return dragonHP
 
-
-# def gameOver(dragonHP):
-#     if(dragonHP == 0):
-        # mensagem e som dizendo que o jogador perdeu
 
 

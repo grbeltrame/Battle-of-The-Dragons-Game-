@@ -72,8 +72,10 @@ def gamePlayCavD(prefDragon,dragaoPrefFlying,delay,flying):
         background_dinamico.movimentoplataforma(plataforma11,speed,janela,teclado)
         background_dinamico.movimentoplataforma(plataforma12,speed,janela,teclado)
         background_dinamico.movimentoplataforma(plataforma13,speed,janela,teclado)
+
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
-        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)       
+  
+        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)     
         dragao.update()
         dragao.draw()
         janela.update()

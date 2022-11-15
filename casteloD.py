@@ -29,8 +29,9 @@ def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying):
     #Game loop
     while(True):
         background_dinamico.scrolling(fundoCasD_1,fundoCasD_2,speed,janela,teclado)
-        dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
-        delay = movimento_dragao.shootFireball(teclado,dragao,janela)      
+        dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying)
+        
+        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)      
         dragao.update()
         dragao.draw()
         janela.update()
