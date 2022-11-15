@@ -3,6 +3,7 @@ from PPlay.sprite import *
 from PPlay.gameimage import* 
 from PPlay.keyboard import* 
 import movimento_dragao
+import background_dinamico
 
 # Adicionar os soldados e o canhão(se a gnt achar o sprite disso), e as plataformas que precisar
 # Sinta-se livre pra colocar quantos soldados quiser e onde quiser
@@ -13,7 +14,9 @@ def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying):
     janela.set_title("Caverna fase Estática")
     teclado = janela.get_keyboard()
 
-    fundoCasD = GameImage("sprites/caverna-estatico/caverna-estatica.jpg")
+    fundoCasD_1 = GameImage("sprites/castelo-dinamico/background2.png")
+    fundoCasD_2 = GameImage("sprites/castelo-dinamico/background2.png")
+    speed = 300
 
     #Define dragão de acordo com o selecionado e com a movimentação e posiciona no inicio do jogo
     prefDragon.set_position(150,janela.height - 50 - prefDragon.height)
@@ -25,7 +28,7 @@ def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying):
 
     #Game loop
     while(True):
-        fundoCasD.draw()
+        background_dinamico.scrolling(fundoCasD_1,fundoCasD_2,speed,janela,teclado)
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
         delay = movimento_dragao.shootFireball(teclado,dragao,janela)      
         dragao.update()
