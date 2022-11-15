@@ -13,7 +13,7 @@ def gamePlayFlorE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying)
     janela.set_title("Caverna fase Estática")
     teclado = janela.get_keyboard()
 
-    fundoFlorE = GameImage("sprites/floresta-estatico/floresta_estatico.png")
+    fundoFlorE = GameImage("sprites/icones/bkg forest.png.png")
     plataforma1 = Sprite("sprites/floresta-estatico/plataforma1.png")
     plataforma2 = Sprite("sprites/floresta-estatico/plataforma2.png")
     plataforma3 = Sprite("sprites/floresta-estatico/plataforma3.png")
