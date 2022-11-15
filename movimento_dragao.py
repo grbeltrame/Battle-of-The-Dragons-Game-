@@ -4,6 +4,7 @@ from PPlay.sprite import *
 from PPlay.gameimage import* 
 from PPlay.keyboard import* 
 
+
 global velTiro
 global delay
 global tiros 
@@ -27,38 +28,43 @@ def criaTiro(tiros,dragao):
 def movTiro(tiros,velTiro,janela):
     for tiro in tiros:
         tiro.x += velTiro*janela.delta_time()
-        tiro.y -= velTiro*janela.delta_time()
         tiro.draw()
-        if(tiro.y < 0 - tiro.height):
+        if(tiro.x > janela.width):
             tiros.remove(tiro)
-def shootFireball(teclado,dragao,janela):
-    delay = 20
-    criaTiro(tiros,dragao)     
+
+def shootFireball(teclado,dragao,janela,delay):
+    if(delay == 0):
+        criaTiro(tiros,dragao)
+        delay = 20    
     if(len(tiros)>0):        
         movTiro(tiros,velTiro,janela)
     if(delay>0):
         delay -= 1
+    return delay
 
-def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying): 
+def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flying): 
     dragao = atual
     velDragao = 300
     if(teclado.key_pressed("X")):
         dragao = trocaDragao(dragao,dragaoPrefFlying)
+        flying = True
     if(teclado.key_pressed("left_shift")) :
         dragao = trocaDragao(dragao,dragaoPrefStand)
+        flying = False
+    if(flying == True):
+        if(teclado.key_pressed("UP")):
+            dragao.y -= velDragao*janela.delta_time() 
+        if(teclado.key_pressed("DOWN")):
+            dragao.y += velDragao*janela.delta_time() 
     # if(teclado.key_pressed("SPACE")):
     #     inserir forma dele pular
     if(teclado.key_pressed("RIGHT")):
         dragao.x += velDragao*janela.delta_time()  
     if(teclado.key_pressed("LEFT")):
         dragao.x -= velDragao*janela.delta_time() 
-    if(teclado.key_pressed("UP")):
-        dragao.y -= velDragao*janela.delta_time() 
-    if(teclado.key_pressed("DOWN")):
-        dragao.y += velDragao*janela.delta_time() 
     if(teclado.key_pressed("F") ):
-        shootFireball(teclado,dragao,janela)
-    return dragao
+        shootFireball(teclado,dragao,janela,delay)
+    return dragao,flying
 
 
 

@@ -1,8 +1,7 @@
-from tkinter import Button
 from PPlay.gameimage import* 
 from PPlay.window import *
 from PPlay.sprite import *
-import cavernaE
+import game
 
 
  #Define incremento de dificuldade
@@ -13,19 +12,6 @@ global modDificil
 
 #Define qual o dragão escolhido
 global prefDragon 
-global falkor
-global falkorFlying
-global mushu
-global mushuFlying
-global banguela
-global banguelaFlying
-global elliot
-global elliotFlying
-global viserion
-global viserionFlying
-global saphira
-global saphiraFlying
-
 global dragaoPrefStand
 global dragaoPrefFlying
 
@@ -34,6 +20,7 @@ global dragaoPrefFlying
 def gameChoseDragon():
     janela = Window(1280,720)
     janela.set_title("Batttle of the Dragons")
+
 
     #Define imagem de fundo
     fundoChoseDragon = GameImage("sprites/icones/fundo-dragão.jpg")
@@ -44,8 +31,7 @@ def gameChoseDragon():
 
     falkor = Sprite("sprites/personagens/bran1.png",4)
     falkorFlying = Sprite("sprites/personagens/bran-2.png",4)
-   
-   
+    
     mushu = Sprite("sprites/personagens/red-1.png",4)
     mushuFlying = Sprite("sprites/personagens/red-2.png",4)
  
@@ -61,6 +47,10 @@ def gameChoseDragon():
     saphira =  Sprite("sprites/personagens/azul-1.png",4)
     saphiraFlying = Sprite("sprites/personagens/azul-2.png",4)
   
+    dragoesStanding = [falkor,mushu,banguela,elliot,viserion,saphira]
+    dragoesFlying = [falkorFlying,mushuFlying,banguelaFlying,elliotFlying,viserionFlying,saphiraFlying]
+
+    dragoesEnemy = [falkorFlying,mushuFlying,banguelaFlying,elliotFlying,viserionFlying,saphiraFlying] #trocar para imagem ao contrario
 
     #Define botoes dos dragoes
     falkorBTN = Sprite("sprites/icones/FALKOR.png")
@@ -88,24 +78,30 @@ def gameChoseDragon():
     while (True): 
         if(mouse.is_button_pressed(1)) and NoDClick == 0:
             if(mouse.is_over_object(falkorBTN)):
-                prefDragon = falkor
-                dragaoPrefFlying = falkorFlying
+                prefDragon = dragoesStanding[0]
+                dragaoPrefFlying = dragoesFlying[0]
+                dragoesEnemy.pop(0)
             elif(mouse.is_over_object(mushuBTN)):
-                prefDragon = mushu
-                dragaoPrefFlying = mushuFlying
+                prefDragon = dragoesStanding[1]
+                dragaoPrefFlying = dragoesFlying[1]
+                dragoesEnemy.pop(1)
             elif(mouse.is_over_object(banguelaBTN)):
-                prefDragon = banguela
-                dragaoPrefFlying = banguelaFlying
+                prefDragon = dragoesStanding[2]
+                dragaoPrefFlying = dragoesFlying[2]
+                dragoesEnemy.pop(2)
             elif(mouse.is_over_object(elliotBTN)):
-                prefDragon = elliot
-                dragaoPrefFlying = elliotFlying
+                prefDragon = dragoesStanding[3]
+                dragaoPrefFlying = dragoesFlying[3]
+                dragoesEnemy.pop(3)
             elif(mouse.is_over_object(viserionBTN)):
-                prefDragon = viserion
-                dragaoPrefFlying = viserionFlying
+                prefDragon = dragoesStanding[4]
+                dragaoPrefFlying = dragoesFlying[4]
+                dragoesEnemy.pop(4)
             elif(mouse.is_over_object(saphiraBTN)):
-                prefDragon = saphira
-                dragaoPrefFlying = saphiraFlying
-            cavernaE.gamePlayCavE(prefDragon,dragaoPrefFlying)
+                prefDragon = dragoesStanding[5]
+                dragaoPrefFlying = dragoesFlying[5]
+                dragoesEnemy.pop(5)
+            game.game(prefDragon,dragaoPrefFlying,1,dragoesEnemy)
         if(NoDClick>0):
             NoDClick -=1 
         fundoChoseDragon.draw()

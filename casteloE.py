@@ -7,32 +7,27 @@ import movimento_dragao
 # Adicionar os soldados e o canhão(se a gnt achar o sprite disso), e as plataformas que precisar
 # Sinta-se livre pra colocar quantos soldados quiser e onde quiser
  
-def gamePlayCasE():
+def gamePlayCasE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying):
     #Define dimensão da janela e teclado
     janela = Window(1280,720)
     janela.set_title("Caverna fase Estática")
     teclado = janela.get_keyboard()
 
-    fundoCasE = GameImage("sprites/icones/bkg castle.png")
+    fundoCasE = GameImage("sprites/caverna-estatico/caverna-estatica.jpg")
 
     #Define dragão de acordo com o selecionado e com a movimentação e posiciona no inicio do jogo
-    dragaoStand = Sprite("sprites/personagens/azul-1.png",4)
-    dragaoFlying = Sprite("sprites/personagens/azul-2.png",4)
-    dragaoStand.set_position(150,janela.height - 50 - dragaoStand.height)
-    dragaoStand.set_total_duration(1000)
-    dragaoFlying.set_total_duration(1000)
+    prefDragon.set_position(150,janela.height - 50 - prefDragon.height)
+    prefDragon.set_total_duration(1000)
+    dragaoPrefFlying.set_total_duration(1000)
 
     #Sprite de controle de que modo o dragão está
-    dragao = dragaoStand
-
+    dragao = prefDragon
 
     #Game loop
     while(True):
         fundoCasE.draw()
-        if(teclado.key_pressed("SPACE")):
-            dragao = movimento_dragao.trocaDragao(dragao,dragaoFlying)
-        if(teclado.key_pressed("left_shift")) :
-            dragao = movimento_dragao.trocaDragao(dragao,dragaoStand)       
+        dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
+        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)       
         dragao.update()
         dragao.draw()
         janela.update()

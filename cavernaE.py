@@ -7,7 +7,7 @@ import movimento_dragao
 # Adicionar os soldados e o canhão(se a gnt achar o sprite disso), e as plataformas que precisar
 # Sinta-se livre pra colocar quantos soldados quiser e onde quiser
 
-def gamePlayCavE(prefDragon,dragaoPrefFlying):
+def gamePlayCavE(prefDragon,dragaoPrefFlying,delay,flying):
     #Define dimensão da janela e teclado
     janela = Window(1280,720)
     janela.set_title("Caverna fase Estática")
@@ -16,19 +16,18 @@ def gamePlayCavE(prefDragon,dragaoPrefFlying):
     fundoCavE = GameImage("sprites/caverna-estatico/caverna-estatica.jpg")
 
     #Define dragão de acordo com o selecionado e com a movimentação e posiciona no inicio do jogo
-    dragaoPrefStand = prefDragon
-    dragaoPrefStand.set_position(150,janela.height - 50 - dragaoPrefStand.height)
-    dragaoPrefStand.set_total_duration(1000)
+    prefDragon.set_position(150,janela.height - 50 - prefDragon.height)
+    prefDragon.set_total_duration(1000)
     dragaoPrefFlying.set_total_duration(1000)
 
     #Sprite de controle de que modo o dragão está
-    dragao = dragaoPrefStand
+    dragao = prefDragon
 
     #Game loop
     while(True):
         fundoCavE.draw()
-        dragao = movimento_dragao.movDragao(dragao,janela,teclado,dragaoPrefStand,dragaoPrefFlying) 
-        # fire = movimento_dragao.shootFireball(teclado,dragao,janela)      
+        dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
+        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)      
         dragao.update()
         dragao.draw()
         janela.update()
