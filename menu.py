@@ -101,7 +101,7 @@ def gameChoseDragon():
                 prefDragon = dragoesStanding[5]
                 dragaoPrefFlying = dragoesFlying[5]
                 dragoesEnemy.pop(5)
-            game.game(prefDragon,dragaoPrefFlying,1,dragoesEnemy)
+            gameDificulty(prefDragon,dragaoPrefFlying,dragoesEnemy)
         if(NoDClick>0):
             NoDClick -=1 
         fundoChoseDragon.draw()
@@ -160,7 +160,7 @@ def gameReload():
         menuReload.draw()
         janela.update()
 
-def gameDificulty():
+def gameDificulty(prefDragon,dragaoPrefFlying,dragoesEnemy):
     janela = Window(1280,720)
     janela.set_title("Batttle of the Dragons")
 
@@ -208,6 +208,7 @@ def gameDificulty():
             elif(mouse.is_over_object(dificil)):
                 modGame = modDificil
                 #chama função do jogo
+            game.game(prefDragon,dragaoPrefFlying,1,dragoesEnemy,modGame)
         if(NoDClick>0):
             NoDClick -=1 
         fundoDificuldades.draw()

@@ -62,17 +62,59 @@ def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flying):
         dragao.x += velDragao*janela.delta_time()  
     if(teclado.key_pressed("LEFT")):
         dragao.x -= velDragao*janela.delta_time() 
-    return dragao,flying
+    return dragao,flying,velDragao
 
+def movDragaoDinamico(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flying): 
+    dragao = atual
+    velDragao = 300
+    if(teclado.key_pressed("X")):
+        dragao = trocaDragao(dragao,dragaoPrefFlying)
+        flying = True
+    if(teclado.key_pressed("left_shift")) :
+        dragao = trocaDragao(dragao,dragaoPrefStand)
+        flying = False
+    if(flying == True):
+        if(teclado.key_pressed("UP")):
+            dragao.y -= velDragao*janela.delta_time() 
+        if(teclado.key_pressed("DOWN")):
+            dragao.y += velDragao*janela.delta_time()
+    # else: 
+    # if(teclado.key_pressed("SPACE")):
+    #     inserir forma dele pular
+    return dragao,flying,velDragao
 
+def colisaoDragao(vetPlataformas,dragao,velDragao,janela):
+    for plataforma in vetPlataformas:
+        if dragao.collided_perfect(plataforma):
+            if(dragao.x + dragao.width >= plataforma.x):
+                dragao.x -= velDragao*janela.delta_time()
+            elif(dragao.x  <= plataforma.x + plataforma.width):
+                dragao.x += velDragao*janela.delta_time()
+            if(dragao.y + dragao.height >= plataforma.y):
+                dragao.y -= velDragao*janela.delta_time()
+            elif(dragao.y  <= plataforma.y + plataforma.height):
+                dragao.y += velDragao*janela.delta_time()
+    return velDragao,dragao
 
-# def colisaoDragao(plataforma,soldado,dragao):
-#     estudar as colisoes de acordo com as plataformas, soldados e tiros de outros dragoes
-
-# def lessHP(dragonHP,enemyTiros,dragao,dano,modGame):
+def colisaoDragaoDinamico(vetPlataformas,dragao,velDragao,janela,background1,background2):
+    for plataforma in vetPlataformas:
+        if dragao.collided_perfect(plataforma):
+            if(dragao.x + dragao.width >= plataforma.x):
+                background1.x -= velDragao*janela.delta_time()
+                background2.x -= velDragao*janela.delta_time()
+            elif(dragao.x  <= plataforma.x + plataforma.width):
+                background1.x += velDragao*janela.delta_time()
+                background2.x += velDragao*janela.delta_time()
+            if(dragao.y + dragao.height >= plataforma.y):
+                dragao.y -= velDragao*janela.delta_time()
+            elif(dragao.y  <= plataforma.y + plataforma.height):
+                dragao.y += velDragao*janela.delta_time()
+    return velDragao,dragao,background1,background2
+    
+# def lessHP(dragonHP,enemyTiros,dragao,dano):
 #     for tiro in enemyTiros:
         # if(tiro.collided(dragao)):
-        #     dragonHP -= dano*modGame
+        #     dragonHP -= dano
         # alterar barra de hp
         # return dragonHP
 

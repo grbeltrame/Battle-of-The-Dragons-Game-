@@ -8,7 +8,7 @@ import background_dinamico
 # Adicionar os soldados e o canhão(se a gnt achar o sprite disso), e as plataformas que precisar
 # Sinta-se livre pra colocar quantos soldados quiser e onde quiser
 
-def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying):
+def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,vetPlatCasD):
     #Define dimensão da janela e teclado
     janela = Window(1280,720)
     janela.set_title("Caverna fase Estática")
