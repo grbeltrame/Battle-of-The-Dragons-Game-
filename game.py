@@ -143,3 +143,4 @@ def plataformas():
     vetPlatCasE =[]
     
     return vetPlatCavD, vetPlatCavE, vetPlatFlorD, vetPlatFlorE, vetPlatCasD, vetPlatCasE
+

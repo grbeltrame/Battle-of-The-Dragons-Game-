@@ -4,6 +4,7 @@ from PPlay.gameimage import*
 from PPlay.keyboard import* 
 import movimento_dragao
 import background_dinamico
+import enemy
 
 # Adicionar os soldados e o canhão(se a gnt achar o sprite disso), e as plataformas que precisar
 # Sinta-se livre pra colocar quantos soldados quiser e onde quiser
@@ -27,7 +28,7 @@ def gamePlayCavD(prefDragon,dragaoPrefFlying,delay,flying,vetPlatCavD):
 
     #Sprite de controle de que modo o dragão está
     dragao = prefDragon
-
+    soldados = enemy.criaSoldados(vetPlatCavD)
     #Game loop
     while(True):
         background_dinamico.scrolling(fundoCavD_1,fundoCavD_2,speed,janela,teclado)
@@ -36,9 +37,11 @@ def gamePlayCavD(prefDragon,dragaoPrefFlying,delay,flying,vetPlatCavD):
         
         # dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying)
         dragao,flying,velDragao = movimento_dragao.movDragaoDinamico(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying)
-        velDragao,dragao,fundoCavD_1,fundoCavD_2= movimento_dragao.colisaoDragaoDinamico(vetPlatCavD,dragao,velDragao,janela,fundoCavD_1,fundoCavD_2)
+        velDragao,dragao,fundoCavD_1,fundoCavD_2,vetPlatCavD = movimento_dragao.colisaoDragaoDinamico(vetPlatCavD,dragao,velDragao,janela,fundoCavD_1,fundoCavD_2,teclado)
   
-        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay)     
+        delay = movimento_dragao.shootFireball(teclado,dragao,janela,delay) 
+        enemy.movSoldados(soldados,velDragao,teclado,janela)
+        enemy.desenhaSoldados(soldados)    
         dragao.update()
         dragao.draw()
         janela.update()

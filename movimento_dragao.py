@@ -5,6 +5,7 @@ from PPlay.gameimage import*
 from PPlay.keyboard import* 
 
 
+
 global velTiro
 global delay
 global tiros 
@@ -96,20 +97,14 @@ def colisaoDragao(vetPlataformas,dragao,velDragao,janela):
                 dragao.y += velDragao*janela.delta_time()
     return velDragao,dragao
 
-def colisaoDragaoDinamico(vetPlataformas,dragao,velDragao,janela,background1,background2):
+def colisaoDragaoDinamico(vetPlataformas,dragao,velDragao,janela,background1,background2,teclado):
     for plataforma in vetPlataformas:
-        if dragao.collided_perfect(plataforma):
-            if(dragao.x + dragao.width >= plataforma.x):
-                background1.x -= velDragao*janela.delta_time()
-                background2.x -= velDragao*janela.delta_time()
-            elif(dragao.x  <= plataforma.x + plataforma.width):
-                background1.x += velDragao*janela.delta_time()
-                background2.x += velDragao*janela.delta_time()
-            if(dragao.y + dragao.height >= plataforma.y):
+        if dragao.collided(plataforma):
+            if(teclado.key_pressed("DOWN")):
                 dragao.y -= velDragao*janela.delta_time()
-            elif(dragao.y  <= plataforma.y + plataforma.height):
+            elif(teclado.key_pressed("UP")):
                 dragao.y += velDragao*janela.delta_time()
-    return velDragao,dragao,background1,background2
+    return velDragao,dragao,background1,background2, vetPlataformas
     
 # def lessHP(dragonHP,enemyTiros,dragao,dano):
 #     for tiro in enemyTiros:
