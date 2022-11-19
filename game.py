@@ -140,6 +140,32 @@ def plataformas():
     vetPlatFlorE.append(platFlorE3)
     
     vetPlatCasD =[]
+    platCasD1 = Sprite("sprites/castelo-dinamico/plataforma1.png")
+    platCasD1.set_position(0, 407)
+    platCasD2 = Sprite("sprites/castelo-dinamico/plataforma2.png")
+    platCasD2.set_position(79, 413)
+    platCasD3 = Sprite("sprites/castelo-dinamico/plataforma3.png")
+    platCasD3.set_position(550, 340)
+    platCasD4 = Sprite("sprites/castelo-dinamico/plataforma3.png")
+    platCasD4.set_position(900, 460)
+    platCasD5 = Sprite("sprites/castelo-dinamico/plataforma4.png")
+    platCasD5.set_position(-3, 0)
+    platCasD6 = Sprite("sprites/castelo-dinamico/plataforma5.png")
+    platCasD6.set_position(1277, 0)
+    platCasD7 = Sprite("sprites/castelo-dinamico/plataforma5.png")
+    platCasD7.set_position(2553, 0)
+    platCasD8 = Sprite("sprites/castelo-dinamico/plataforma6.png")
+    platCasD8.set_position(3820, 0)
+    
+    vetPlatCasD.append(platCasD1)
+    vetPlatCasD.append(platCasD2)
+    vetPlatCasD.append(platCasD3)
+    vetPlatCasD.append(platCasD4)
+    vetPlatCasD.append(platCasD5)
+    vetPlatCasD.append(platCasD6)
+    vetPlatCasD.append(platCasD7)
+    vetPlatCasD.append(platCasD8)
+    
     vetPlatCasE =[]
     
     return vetPlatCavD, vetPlatCavE, vetPlatFlorD, vetPlatFlorE, vetPlatCasD, vetPlatCasE
