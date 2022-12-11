@@ -11,7 +11,7 @@ import background_dinamico
 def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,vetPlatCasD):
     #Define dimensão da janela e teclado
     janela = Window(1280,720)
-    janela.set_title("Caverna fase Estática")
+    janela.set_title("Castelo fase Dinâmica")
     teclado = janela.get_keyboard()
 
     fundoCasD_1 = GameImage("sprites/castelo-dinamico/backgroundcasD.jpg")
