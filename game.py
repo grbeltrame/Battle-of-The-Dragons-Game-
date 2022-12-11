@@ -156,6 +156,16 @@ def plataformas():
     platCasD7.set_position(2553, 0)
     platCasD8 = Sprite("sprites/castelo-dinamico/plataforma6.png")
     platCasD8.set_position(3820, 0)
+    platCasD9 = Sprite("sprites/castelo-dinamico/plataforma7.png")
+    platCasD9.set_position(1280,0)
+    platCasD10 = Sprite("sprites/castelo-dinamico/plataforma3.png")
+    platCasD10.set_position(1180,310)
+    platCasD11 = Sprite("sprites/castelo-dinamico/plataforma3.png")
+    platCasD11.set_position(1880,400)
+    platCasD12 = Sprite("sprites/castelo-dinamico/plataforma3.png")
+    platCasD12.set_position(2180,600)
+    platCasD13 = Sprite("sprites/castelo-dinamico/plataforma3.png")
+    platCasD13.set_position(2400,300)
     
     vetPlatCasD.append(platCasD1)
     vetPlatCasD.append(platCasD2)
@@ -165,6 +175,11 @@ def plataformas():
     vetPlatCasD.append(platCasD6)
     vetPlatCasD.append(platCasD7)
     vetPlatCasD.append(platCasD8)
+    vetPlatCasD.append(platCasD9)
+    vetPlatCasD.append(platCasD10)
+    vetPlatCasD.append(platCasD11)
+    vetPlatCasD.append(platCasD12)
+    vetPlatCasD.append(platCasD13)
     
     vetPlatCasE =[]
     
