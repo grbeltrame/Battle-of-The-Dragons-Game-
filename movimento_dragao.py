@@ -43,6 +43,13 @@ def shootFireball(teclado,dragao,janela,delay):
         delay -= 1
     return delay
 
+# def colisaoTiro(soldados,tiros):
+#     for tiro in tiros:
+#         for i,soldado in enumerate(soldados):    
+#             if(tiro.collided(i)):
+#                 soldados.pop(i)
+#                 tiros.remove(tiro)
+
 def movDragao(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flying): 
     dragao = atual
     velDragao = 300

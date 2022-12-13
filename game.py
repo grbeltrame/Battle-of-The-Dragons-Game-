@@ -185,3 +185,8 @@ def plataformas():
     
     return vetPlatCavD, vetPlatCavE, vetPlatFlorD, vetPlatFlorE, vetPlatCasD, vetPlatCasE
 
+# def audioDinamicas():
+
+# def audioEStaticas():
+
+

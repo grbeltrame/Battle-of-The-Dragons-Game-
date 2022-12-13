@@ -2,12 +2,19 @@ from PPlay.gameimage import*
 from PPlay.window import *
 from PPlay.sprite import *
 
+# tirosSoldados = []
+
 # def badDragons():
 #     criar e movimentar os dragoes pelo mapa 
 
 
-# def lastBossMov():
-#     movimentação do ultimo chefão
+# def lastBossPos(janela):
+#     boss = Sprite("sprites/chefões/chefao_2.png",6)
+#     boss.set_total_duration(1000)
+#     boss.x = janela.width - boss.width 
+#     boss.y = janela.height - boss.height
+#     return boss
+
 
 # def lastBossHP():
 #     controla vida do ultimo chefão
@@ -31,10 +38,18 @@ def desenhaSoldados(soldados):
         soldado.update()
         soldado.draw()
 
-def movSoldados(soldados,velDragao,teclado,janela):
-    for soldado in soldados:
-        if(teclado.key_pressed("LEFT")):
-            soldado.x += velDragao*janela.delta_time()
-        elif(teclado.key_pressed("RIGHT")):
-            soldado.x -= velDragao*janela.delta_time()
-    return soldados
+# def criaTiroSoldados(tirosSoldados,soldado):
+#     tiro = Sprite("sprites/inimigos/ponta_arma.png") 
+#     tiro.y = soldado.y + tiro.height 
+#     tiro.x = soldado.x*1.5
+#     tirosSoldados.append(tiro)
+
+# def movTiroSoldados(tirosSoldados,velTiro,janela):
+#     for tiro in tirosSoldados:
+#         tiro.x -= velTiro*janela.delta_time()
+#         tiro.draw()
+#         if(tiro.x > janela.width):
+#             tirosSoldados.remove(tiro)
+
+# def shootArma(teclado,dragao,janela,delay,soldados):
+    # IA para atirar no dragao

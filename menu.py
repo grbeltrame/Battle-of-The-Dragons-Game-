@@ -1,6 +1,7 @@
 from PPlay.gameimage import* 
 from PPlay.window import *
 from PPlay.sprite import *
+from PPlay.sound import*
 import game
 
 
@@ -31,26 +32,32 @@ def gameChoseDragon():
 
     falkor = Sprite("sprites/personagens/bran1.png",4)
     falkorFlying = Sprite("sprites/personagens/bran-2.png",4)
+    falkorInvertido = Sprite("sprites/personagens/bran-2 invertido.png",4)
     
     mushu = Sprite("sprites/personagens/red-1.png",4)
     mushuFlying = Sprite("sprites/personagens/red-2.png",4)
+    mushuInvertido = Sprite("sprites/personagens/red-2 invertido.png",4)
  
     banguela = Sprite("sprites/personagens/pret-1.png",4)
     banguelaFlying = Sprite("sprites/personagens/pret-2.png",4)
-    
+    banguelaInvertido = Sprite("sprites/personagens/pret-2 invertido.png",4)
+
     elliot = Sprite("sprites/personagens/verd-1.png",4)
     elliotFlying = Sprite("sprites/personagens/verd-2.png",4)
+    elliotInvertido = Sprite("sprites/personagens/verd-2 invertido.png",4)
     
     viserion =  Sprite("sprites/personagens/amar-1.png",4)
     viserionFlying = Sprite("sprites/personagens/amar-2.png",4)
+    viserionInvertido = Sprite("sprites/personagens/amar-2 invertido.png",4)
    
     saphira =  Sprite("sprites/personagens/azul-1.png",4)
     saphiraFlying = Sprite("sprites/personagens/azul-2.png",4)
+    saphiraInvertido = Sprite("sprites/personagens/azul-2 invertido.png",4)
   
     dragoesStanding = [falkor,mushu,banguela,elliot,viserion,saphira]
     dragoesFlying = [falkorFlying,mushuFlying,banguelaFlying,elliotFlying,viserionFlying,saphiraFlying]
 
-    dragoesEnemy = [falkorFlying,mushuFlying,banguelaFlying,elliotFlying,viserionFlying,saphiraFlying] #trocar para imagem ao contrario
+    dragoesEnemy = [falkorInvertido,mushuInvertido,banguelaInvertido,elliotInvertido,viserionInvertido,saphiraInvertido] #trocar para imagem ao contrario
 
     #Define botoes dos dragoes
     falkorBTN = Sprite("sprites/icones/FALKOR.png")
@@ -73,6 +80,9 @@ def gameChoseDragon():
 
     #Permite entrada de mouse
     mouse = Window.get_mouse()
+
+   
+
   
     #Game Loop
     while (True): 
@@ -250,6 +260,9 @@ def gameMenu():
     #Permite entrada de mouse
     mouse = Window.get_mouse()
 
+    
+    # intro = Sound("audio\Medieval Themes (WAV)\intro do jogo.wav")
+
     #Game Loop
     while (True): 
         if(mouse.is_button_pressed(1)):
@@ -263,7 +276,7 @@ def gameMenu():
                 gameHowTo()
             elif(mouse.is_over_object(sair)):
                 break
-
+        # intro.load("audio\Medieval Themes (WAV)\intro do jogo.wav")
         fundoMenu.draw()
         menuPrincipal.draw()
         play.draw()
