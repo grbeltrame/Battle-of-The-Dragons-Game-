@@ -261,10 +261,15 @@ def gameMenu():
     mouse = Window.get_mouse()
 
     
-    # intro = Sound("audio\Medieval Themes (WAV)\intro do jogo.wav")
+    musica = 0 
 
     #Game Loop
     while (True): 
+        if musica == 0 :
+            pygame.mixer.music.load("audio/Medieval Themes (WAV)/intro do jogo.wav")
+            pygame.mixer.music.set_volume(0.3)
+            pygame.mixer.music.play(-1)
+            musica += 1
         if(mouse.is_button_pressed(1)):
             if(mouse.is_over_object(play)):
                 gameChoseDragon()
@@ -276,7 +281,7 @@ def gameMenu():
                 gameHowTo()
             elif(mouse.is_over_object(sair)):
                 break
-        # intro.load("audio\Medieval Themes (WAV)\intro do jogo.wav")
+        
         fundoMenu.draw()
         menuPrincipal.draw()
         play.draw()

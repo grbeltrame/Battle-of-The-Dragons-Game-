@@ -23,8 +23,17 @@ def gamePlayCasE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,v
     #Sprite de controle de que modo o dragão está
     dragao = prefDragon
 
+   #Varivael para controle de musica
+    musica = 0
+    
     #Game loop
     while(True):
+        if musica == 0:
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("audio/Medieval Themes (WAV)/fases estaticas.wav")
+            pygame.mixer.music.set_volume(0.3)
+            pygame.mixer.music.play(-1)
+            musica += 1
         fundoCasE.draw()
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying) 
 

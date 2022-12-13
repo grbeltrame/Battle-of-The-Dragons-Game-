@@ -37,7 +37,14 @@ def desenhaSoldados(soldados):
     for soldado in soldados:
         soldado.update()
         soldado.draw()
-
+        
+def movSoldados(soldados,velDragao,teclado,janela):
+    for soldado in soldados:
+        if(teclado.key_pressed("LEFT")):
+            soldado.x += velDragao*janela.delta_time()
+        elif(teclado.key_pressed("RIGHT")):
+            soldado.x -= velDragao*janela.delta_time()
+    return soldados
 # def criaTiroSoldados(tirosSoldados,soldado):
 #     tiro = Sprite("sprites/inimigos/ponta_arma.png") 
 #     tiro.y = soldado.y + tiro.height 

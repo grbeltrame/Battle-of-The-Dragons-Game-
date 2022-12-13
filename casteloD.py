@@ -27,8 +27,17 @@ def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,v
     #Sprite de controle de que modo o dragão está
     dragao = prefDragon
 
+    #Varivael para controle de musica
+    musica = 0
+    
     #Game loop
     while(True):
+        if musica == 0:
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("audio/Medieval Themes (WAV)/fases dinamicas.wav")
+            pygame.mixer.music.set_volume(0.3)
+            pygame.mixer.music.play(-1)
+            musica += 1
         background_dinamico.scrolling(fundoCasD_1,fundoCasD_2,speed,janela,teclado)
         for i in range(13):
             background_dinamico.movimentoplataforma(vetPlatCasD[i],speed,janela,teclado)
