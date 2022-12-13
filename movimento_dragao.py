@@ -97,14 +97,20 @@ def colisaoDragao(vetPlataformas,dragao,velDragao,janela):
                 dragao.y += velDragao*janela.delta_time()
     return velDragao,dragao
 
-def colisaoDragaoDinamico(vetPlataformas,dragao,velDragao,janela,background1,background2,teclado):
+def colisaoDragaoDinamico(vetPlataformas,dragao,velDragao,janela,background1,background2,teclado): 
     for plataforma in vetPlataformas:
         if dragao.collided(plataforma):
+            if(teclado.key_pressed("RIGHT")):
+                dragao.x -= velDragao*janela.delta_time()
             if(teclado.key_pressed("DOWN")):
                 dragao.y -= velDragao*janela.delta_time()
             elif(teclado.key_pressed("UP")):
                 dragao.y += velDragao*janela.delta_time()
     return velDragao,dragao,background1,background2, vetPlataformas
+
+
+
+
     
 # def lessHP(dragonHP,enemyTiros,dragao,dano):
 #     for tiro in enemyTiros:
