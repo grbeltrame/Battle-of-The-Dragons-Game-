@@ -9,6 +9,9 @@ import casteloD
 import casteloE
 import endGame
 
+global mensagem
+global checkpoint
+
 def game(prefDragon,dragaoPrefFlying,cenario,vetorDragoesInimigos,modGame):
     danoEnemy = 1*modGame
     delay = 50 
@@ -208,8 +211,34 @@ def plataformas():
     
     return vetPlatCavD, vetPlatCavE, vetPlatFlorD, vetPlatFlorE, vetPlatCasD, vetPlatCasE
 
-# def audioDinamicas():
 
-# def audioEStaticas():
+def inCheckpoint(janela,dragao):
+    checkpoint = Sprite("sprites/vidas/flag.png")
+    checkpoint.set_position(janela.width,janela.heigth - 50)
+    if dragao.x == checkpoint.x:
+        cenario += 1
+        pygame.mixer.music.stop()
+    else: 
+        return 1
+    return cenario
+
+
+def imagens(cenario,dragonHP):
+    if cenario == 1:
+        mensagem = Sprite("sprites\icones\msg fly.jpg")
+        # inserir a mensagem para parar de voar
+    if cenario == 2 or cenario == 4:
+        mensagem = Sprite("sprites\icones\msg eliminar todos.jpg")
+    if cenario == 3:
+        mensagem = Sprite("sprites\icones\msg fire.jpg")
+    if cenario == 5:
+        mensagem = Sprite("sprites\icones\msg shoot.jpg")
+    if cenario == 6:
+        mensagem = Sprite("sprites\icones\msg eliminar chefao.jpg")
+    if dragonHP == 0:
+        mensagem = Sprite("sprites\icones\msg you loose.jpg")
+    # if inCheck:
+        # mensagem = Sprite("sprites\icones\msg venceu fase.jpg") 
+    return mensagem
 
 

@@ -12,6 +12,8 @@ global tiros
 velTiro = 600
 delay = 0
 tiros = []
+global gravidade 
+gravidade = 10
 
 def trocaDragao(atual,novo):
     dragao = novo
@@ -86,10 +88,11 @@ def movDragaoDinamico(atual,janela,teclado,dragaoPrefStand,dragaoPrefFlying,flyi
             dragao.y -= velDragao*janela.delta_time() 
         if(teclado.key_pressed("DOWN")):
             dragao.y += velDragao*janela.delta_time()
-    # else: 
     # if(teclado.key_pressed("SPACE")):
-    #     inserir forma dele pular
-    return dragao,flying,velDragao
+    #     gravidade -= 10
+    # # gravidade += 1
+    #     dragao.y += gravidade
+    # return dragao,flying,velDragao
 
 def colisaoDragao(vetPlataformas,dragao,velDragao,janela):
     for plataforma in vetPlataformas:
