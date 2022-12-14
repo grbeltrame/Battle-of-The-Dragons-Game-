@@ -13,7 +13,7 @@ def gamePlayCasE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,v
     janela.set_title("Caverna fase Estática")
     teclado = janela.get_keyboard()
 
-    fundoCasE = GameImage("sprites/caverna-estatico/caverna-estatica.jpg")
+    fundoCasE = GameImage("sprites/icones/bkg castle.png")
 
     #Define dragão de acordo com o selecionado e com a movimentação e posiciona no inicio do jogo
     prefDragon.set_position(150,janela.height - 50 - prefDragon.height)
