@@ -39,7 +39,7 @@ def gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,v
             pygame.mixer.music.play(-1)
             musica += 1
         background_dinamico.scrolling(fundoCasD_1,fundoCasD_2,speed,janela,teclado)
-        for i in range(13):
+        for i in range(18):
             background_dinamico.movimentoplataforma(vetPlatCasD[i],speed,janela,teclado)
         dragao,flying = movimento_dragao.movDragao(dragao,janela,teclado,prefDragon,dragaoPrefFlying,flying)
         
