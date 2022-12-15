@@ -12,26 +12,32 @@ import endGame
 global mensagem
 global checkpoint
 
-def game(prefDragon,dragaoPrefFlying,cenario,vetorDragoesInimigos,modGame):
+def game(dragaoPrefFlying,cenario,vetorDragoesInimigos,modGame):
     danoEnemy = 1*modGame
-    delay = 50 
-    flying = False
+    delay = 30 
+    DragaoHP = 10
     vetPlatCavD, vetPlatCavE, vetPlatFlorD, vetPlatFlorE, vetPlatCasD, vetPlatCasE = plataformas()
     #Chamando as fases
     if(cenario == 1):
-        cavernaD.gamePlayCavD(prefDragon,dragaoPrefFlying,delay,flying,vetPlatCavD)
+        init = False
+        cenario = cavernaD.gamePlayCavD(dragaoPrefFlying,delay,vetPlatCavD,DragaoHP,danoEnemy,modGame,init)
     if(cenario == 2):
-        cavernaE.gamePlayCavE(prefDragon,dragaoPrefFlying,delay,flying,vetPlatCavE)
+        init = False
+        cenario = cavernaE.gamePlayCavE(dragaoPrefFlying,delay,vetPlatCavE,DragaoHP,danoEnemy,modGame)
     if(cenario == 3):
-        florestaD.gamePlayFlorD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,vetPlatFlorD)
+        init = False
+        cenario = florestaD.gamePlayFlorD(dragaoPrefFlying,vetorDragoesInimigos,delay,vetPlatFlorD,DragaoHP,danoEnemy,modGame,init)
     if(cenario == 4):
-        florestaE.gamePlayFlorE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,vetPlatFlorE)
+        init = False
+        cenario = florestaE.gamePlayFlorE(dragaoPrefFlying,vetorDragoesInimigos,delay,vetPlatFlorE,DragaoHP,danoEnemy,modGame)
     if(cenario == 5):
-        casteloD.gamePlayCasD(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,vetPlatCasD)
+        init = False
+        cenario = casteloD.gamePlayCasD(dragaoPrefFlying,vetorDragoesInimigos,delay,vetPlatCasD,DragaoHP,danoEnemy,modGame,init)
     if(cenario == 6):
-        casteloE.gamePlayCasE(prefDragon,dragaoPrefFlying,vetorDragoesInimigos,delay,flying,vetPlatCasE)
+        init = False
+        cenario = casteloE.gamePlayCasE(dragaoPrefFlying,vetorDragoesInimigos,delay,vetPlatCasE,DragaoHP,danoEnemy,modGame)
     if(cenario == 7):
-        endGame.finished(prefDragon,dragaoPrefFlying)
+        endGame.finished(dragaoPrefFlying)
 
 def plataformas():
     vetPlatCavD =[]
@@ -211,34 +217,42 @@ def plataformas():
     
     return vetPlatCavD, vetPlatCavE, vetPlatFlorD, vetPlatFlorE, vetPlatCasD, vetPlatCasE
 
+def inCheckpoint(checkpoint,init,posX,posY):
+    if(init == False):
+        checkpoint.set_position(posX,posY)
+        init = True        
+    checkpoint.draw()
+    return checkpoint,init
 
-def inCheckpoint(janela,dragao):
-    checkpoint = Sprite("sprites/vidas/flag.png")
-    checkpoint.set_position(janela.width,janela.heigth - 50)
-    if dragao.x == checkpoint.x:
-        cenario += 1
-        pygame.mixer.music.stop()
-    else: 
-        return 1
-    return cenario
-
-
-def imagens(cenario,dragonHP):
-    if cenario == 1:
-        mensagem = Sprite("sprites\icones\msg fly.jpg")
-        # inserir a mensagem para parar de voar
-    if cenario == 2 or cenario == 4:
-        mensagem = Sprite("sprites\icones\msg eliminar todos.jpg")
-    if cenario == 3:
-        mensagem = Sprite("sprites\icones\msg fire.jpg")
-    if cenario == 5:
-        mensagem = Sprite("sprites\icones\msg shoot.jpg")
-    if cenario == 6:
-        mensagem = Sprite("sprites\icones\msg eliminar chefao.jpg")
-    if dragonHP == 0:
+def imagens(cenario,janela,teclado):
+    while True:
+        if cenario == 1:
+            mensagem = Sprite("sprites\icones\msg fase 1.jpg")
+        if cenario == 2 or cenario == 4:
+            mensagem = Sprite("sprites\icones\msg eliminar todos.jpg")
+        if cenario == 3:
+            mensagem = Sprite("sprites\icones\msg shoot.jpg")
+        if cenario == 5:
+            mensagem = Sprite("sprites\icones\msg ultima dinamica.jpg")
+        if cenario == 6:
+            mensagem = Sprite("sprites\icones\msg eliminar chefao.jpg")
+        if(teclado.key_pressed("ENTER")):
+            break
+        mensagem.draw()
+        janela.update()
+   
+def gameFail(teclado,janela):
+    while True:
         mensagem = Sprite("sprites\icones\msg you loose.jpg")
-    # if inCheck:
-        # mensagem = Sprite("sprites\icones\msg venceu fase.jpg") 
-    return mensagem
+        if(teclado.key_pressed("ENTER")):
+            break
+        mensagem.draw()
+        janela.update()
 
-
+def gamePassed(teclado,janela,cenario):
+    while True:
+        mensagem = Sprite("sprites\icones\msg venceu fase.jpg")
+        if(teclado.key_pressed("ENTER")):
+            return cenario+1
+        mensagem.draw()
+        janela.update()
