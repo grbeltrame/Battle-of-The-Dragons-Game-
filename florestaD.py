@@ -106,7 +106,7 @@ def gamePlayFlorD(dragao,vetorDragoesInimigos,delay,vetPlatFlorD,DragaoHP,danoEn
         if (parou==True and dragaoHitBox.collided_perfect(checkpoint)):
             chegou = pygame.mixer.Sound("audio/Medieval Themes (WAV)/checkpoint alcançado.wav")
             chegou.play()
-            return game.gamePassed(teclado,janela,1)
+            return game.gamePassed(teclado,janela,3)
         if (DragaoHP<=0):
             perdeu = pygame.mixer.Sound("audio/Medieval Themes (WAV)/perdeu.wav")
             perdeu.play()

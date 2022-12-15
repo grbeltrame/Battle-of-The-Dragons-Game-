@@ -69,7 +69,7 @@ def gamePlayCavE(dragao,delay,vetPlatCavE,DragaoHP,danoEnemy,modGame):
         if len(soldados)==0:
             passou = pygame.mixer.Sound("audio\Medieval Themes (WAV)\checkpoint alcançado.wav")
             passou.play()
-            return game.gamePassed(teclado,janela,6)
+            return game.gamePassed(teclado,janela,2)
         if (DragaoHP<=0):
             perdeu = pygame.mixer.Sound("audio/Medieval Themes (WAV)/perdeu.wav")
             perdeu.play()

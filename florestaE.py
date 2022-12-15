@@ -14,7 +14,7 @@ import menu
 def gamePlayFlorE(dragao,vetorDragoesInimigos,delay,vetPlatFlorE,DragaoHP,danoEnemy,modGame):
     #Define dimensão da janela e teclado
     janela = Window(1280,720)
-    janela.set_title("Last Fase")
+    janela.set_title("Floresta fase estatica")
     teclado = janela.get_keyboard()
 
     fundoFlorE = GameImage("sprites/icones/bkg forest.png")

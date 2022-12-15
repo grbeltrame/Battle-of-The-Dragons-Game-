@@ -67,7 +67,7 @@ def movDragaoDinamico(dragao,janela,teclado):
     
 def lessHP(dragonHP,enemyTiros,dragao,dano):
     for tiro in enemyTiros:
-        if(tiro.collided_perfect(dragao)):
+        if(tiro.collided(dragao)):
             dragonHP -= dano
             tomei = pygame.mixer.Sound("audio/Medieval Themes (WAV)/tiro do soldado no player.wav")
             tomei.play()
