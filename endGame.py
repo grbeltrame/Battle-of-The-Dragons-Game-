@@ -28,7 +28,7 @@ def finished(prefDragon):
             pygame.mixer.music.play(-1)
             musica += 1
         fundoFinished.draw()
-        if(teclado.key_pressed("ESC")):
+        if(teclado.key_pressed("ENTER")):
             menu.gameMenu()
         prefDragon.update()
         prefDragon.draw()
